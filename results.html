@@ -1,0 +1,1600 @@
+<h1>Autograde Results</h1>
+
+<h2>Final Score: <span style="color: blue">100%</span></h2>
+
+<table style="background-color:#3fc0FF;" cellpadding="5px" border="1px solid black" cellspacing="0"><tr><th>Test Case<th>Status<th>Checks<th>Passed<th>Failed<th>Score</tr>
+<tr onclick="window.location='#Test0';"><td>0: MakeDeposit<td>Passing<td>0<td>0<td>0<td>5 / 5</tr>
+<tr onclick="window.location='#Test1';"><td>1: PrintUserPortfolios<td>Passing<td>1<td>1<td>0<td>5 / 5</tr>
+<tr onclick="window.location='#Test2';"><td>2: MakeWithdrawal (simple)<td>Passing<td>7<td>7<td>0<td>5 / 5</tr>
+<tr onclick="window.location='#Test3';"><td>3: MakeWithdrawal (complex)<td>Passing<td>12<td>12<td>0<td>5 / 5</tr>
+<tr onclick="window.location='#Test4';"><td>4: Order's operator<<<td>Passing<td>2<td>2<td>0<td>5 / 5</tr>
+<tr onclick="window.location='#Test5';"><td>5: Order's operator==<td>Passing<td>3<td>3<td>0<td>5 / 5</tr>
+<tr onclick="window.location='#Test6';"><td>6: AddOrder (No trades)<td>Passing<td>8<td>8<td>0<td>5 / 5</tr>
+<tr onclick="window.location='#Test7';"><td>7: PrintUsersOrders (No trades)<td>Passing<td>10<td>10<td>0<td>4 / 4</tr>
+<tr onclick="window.location='#Test8';"><td>8: AddOrder (Exact Price Complete Trades)<td>Passing<td>6<td>6<td>0<td>2 / 2</tr>
+<tr onclick="window.location='#Test9';"><td>9: AddOrder (Exact Price Incomplete Trades)<td>Passing<td>9<td>9<td>0<td>2 / 2</tr>
+<tr onclick="window.location='#Test10';"><td>10: AddOrder (Different Taker and Maker Prices)<td>Passing<td>10<td>10<td>0<td>2 / 2</tr>
+<tr onclick="window.location='#Test11';"><td>11: PrintTradeHistory<td>Passing<td>11<td>11<td>0<td>3 / 3</tr>
+<tr onclick="window.location='#Test12';"><td>12: Many Trades<td>Passing<td>5<td>5<td>0<td>4 / 4</tr>
+<tr onclick="window.location='#Test13';"><td>13: Many Trades (more)<td>Passing<td>5<td>5<td>0<td>9 / 9</tr>
+<tr onclick="window.location='#Test14';"><td>14: PrintBidAskSpread<td>Passing<td>3<td>3<td>0<td>9 / 9</tr>
+<tr onclick="window.location='#Test15';"><td>15: Hidden<td>Passing<td>3<td>3<td>0<td>30 / 30</tr>
+<tr><th>TOTAL<td><td><td><td><td>100 / 100</tr></table>
+<p>Click on a row above to jump to the test case or scroll down for more details.<br>
+<hr><h2 id="Test0">Test Case 0: MakeDeposit</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 10);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;USD&quot;, 8500);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 600);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;USD&quot;, 500);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;ETH&quot;, 60);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;ETH&quot;, 4);
+  e.MakeDeposit(&quot;Ofria&quot;, &quot;BTC&quot;, 100);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test1">Test Case 1: PrintUserPortfolios</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 10);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;USD&quot;, 8500);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 600);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;USD&quot;, 500);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;ETH&quot;, 60);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;ETH&quot;, 4);
+  e.MakeDeposit(&quot;Ofria&quot;, &quot;BTC&quot;, 100);
+  e.PrintUserPortfolios(std::cout);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;ETH&quot;, 10);
+  e.PrintUserPortfolios(std::cout);
+  std::ostringstream oss;
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 70 ETH, 600 USD, \nNahum&apos;s Portfolio: 10 BTC, 4 ETH, 9000 USD, \nOfria&apos;s Portfolio: 100 BTC, \n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 60 ETH, 600 USD, 
+Nahum\'s Portfolio: 10 BTC, 4 ETH, 9000 USD, 
+Ofria\'s Portfolio: 100 BTC, 
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 70 ETH, 600 USD, 
+Nahum\'s Portfolio: 10 BTC, 4 ETH, 9000 USD, 
+Ofria\'s Portfolio: 100 BTC, 
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 60 ETH, 600 USD, 
+Nahum's Portfolio: 10 BTC, 4 ETH, 9000 USD, 
+Ofria's Portfolio: 100 BTC, 
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 70 ETH, 600 USD, 
+Nahum's Portfolio: 10 BTC, 4 ETH, 9000 USD, 
+Ofria's Portfolio: 100 BTC, 
+</span></pre></tr></table>
+<h2 id="Test2">Test Case 2: MakeWithdrawal (simple)</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 10);
+  e.PrintUserPortfolios(std::cout);
+  std::cout &lt;&lt; std::endl;
+  CHECK(!e.MakeWithdrawal(&quot;Dolson&quot;, &quot;USD&quot;, 10)); // Dolson has no portfolio
+  CHECK(!e.MakeWithdrawal(&quot;Nahum&quot;, &quot;USD&quot;, 10)); // Nahum has no USD
+  CHECK(!e.MakeWithdrawal(&quot;Nahum&quot;, &quot;BTC&quot;, 11)); // Nahum doesn&apos;t have enough USD
+  CHECK(e.MakeWithdrawal(&quot;Nahum&quot;, &quot;BTC&quot;, 6)); // Success!
+  std::ostringstream oss;
+  e.PrintUserPortfolios(std::cout);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nNahum&apos;s Portfolio: 4 BTC, \n&quot;);
+  CHECK(e.MakeWithdrawal(&quot;Nahum&quot;, &quot;BTC&quot;, 4)); 
+  // Success! Remove the last of the BTC
+  // Please note that you shouldn&apos;t report assets that have an amount of 0.
+  e.PrintUserPortfolios(std::cout);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nNahum&apos;s Portfolio: 4 BTC, \nUser Portfolios (in alphabetical order):\nNahum&apos;s Portfolio: \n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Nahum\'s Portfolio: 10 BTC, 
+
+User Portfolios (in alphabetical order):
+Nahum\'s Portfolio: 4 BTC, 
+User Portfolios (in alphabetical order):
+Nahum\'s Portfolio: 
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Nahum's Portfolio: 10 BTC, 
+
+User Portfolios (in alphabetical order):
+Nahum's Portfolio: 4 BTC, 
+User Portfolios (in alphabetical order):
+Nahum's Portfolio: 
+</span></pre></tr></table>
+<h2 id="Test3">Test Case 3: MakeWithdrawal (complex)</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 10);
+  e.PrintUserPortfolios(std::cout);
+  std::cout &lt;&lt; std::endl;
+  CHECK(!e.MakeWithdrawal(&quot;Dolson&quot;, &quot;USD&quot;, 10)); // Dolson has no portfolio
+  CHECK(!e.MakeWithdrawal(&quot;Nahum&quot;, &quot;USD&quot;, 10)); // Nahum has no USD
+  CHECK(!e.MakeWithdrawal(&quot;Nahum&quot;, &quot;BTC&quot;, 11)); // Nahum doesn&apos;t have enough BTC
+  CHECK(e.MakeWithdrawal(&quot;Nahum&quot;, &quot;BTC&quot;, 6)); // Success!
+  std::ostringstream oss;
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nNahum&apos;s Portfolio: 4 BTC, \n&quot;);
+  CHECK(e.MakeWithdrawal(&quot;Nahum&quot;, &quot;BTC&quot;, 4)); 
+  // Success! Remove the last of the BTC
+  // Please note that you shouldn&apos;t report assets that have an amount of 0.
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nNahum&apos;s Portfolio: \n&quot;);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;BTC&quot;, 4);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 4000);
+  e.MakeDeposit(&quot;Ofria&quot;, &quot;ETH&quot;, 77);
+  CHECK(e.MakeWithdrawal(&quot;Dolson&quot;, &quot;BTC&quot;, 1)); 
+  CHECK(e.MakeWithdrawal(&quot;Dolson&quot;, &quot;USD&quot;, 4000)); 
+  CHECK(!e.MakeWithdrawal(&quot;Ofria&quot;, &quot;BTC&quot;, 1)); 
+  CHECK(!e.MakeWithdrawal(&quot;Ofria&quot;, &quot;Apples&quot;, 1)); 
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 3 BTC, \nNahum&apos;s Portfolio: \nOfria&apos;s Portfolio: 77 ETH, \n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Nahum\'s Portfolio: 10 BTC, 
+
+User Portfolios (in alphabetical order):
+Nahum\'s Portfolio: 4 BTC, 
+User Portfolios (in alphabetical order):
+Nahum\'s Portfolio: 
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 3 BTC, 
+Nahum\'s Portfolio: 
+Ofria\'s Portfolio: 77 ETH, 
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Nahum's Portfolio: 10 BTC, 
+
+User Portfolios (in alphabetical order):
+Nahum's Portfolio: 4 BTC, 
+User Portfolios (in alphabetical order):
+Nahum's Portfolio: 
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 3 BTC, 
+Nahum's Portfolio: 
+Ofria's Portfolio: 77 ETH, 
+</span></pre></tr></table>
+<h2 id="Test4">Test Case 4: Order's operator<<</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  // This test case includes utility.hpp instead of exchange.cpp
+  Order o1 {&quot;Nahum&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 100, 60000};
+  Order o2(o1);
+  std::ostringstream oss;
+  oss &lt;&lt; o1;
+  CHECK(oss.str() == &quot;Buy 100 BTC at 60000 USD by Nahum&quot;);
+  oss.str(&quot;&quot;);
+  oss &lt;&lt; Order{&quot;Dolson&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 9, 888};
+  CHECK(oss.str() == &quot;Sell 9 ETH at 888 USD by Dolson&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test5">Test Case 5: Order's operator==</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  // This test case includes utility.hpp instead of exchange.cpp
+  Order o1 {&quot;Nahum&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 100, 60000};
+  Order o2(o1);
+  CHECK(o1 == o2);
+  Order o3 = o2;
+  CHECK(o1 == o3);
+  o3.side = &quot;Sell&quot;;
+  bool result = o1 == o3;
+  CHECK(!result);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test6">Test Case 6: AddOrder (No trades)</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  std::ostringstream oss;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 10);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;USD&quot;, 500);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 1000);
+  e.MakeDeposit(&quot;Ofria&quot;, &quot;ETH&quot;, 44);
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 1000 USD, \nNahum&apos;s Portfolio: 10 BTC, 500 USD, \nOfria&apos;s Portfolio: 44 ETH, \n&quot;);
+  CHECK(!e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 50, 1000}));
+  // Can&apos;t place order because Nahum doesn&apos;t have enough BTC
+  CHECK(!e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 50, 200}));
+  // Can&apos;t place order because Nahum doesn&apos;t have enough USD
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 4, 1000}));
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;ETH&quot;, 3, 2}));
+  CHECK(e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 7, 1}));
+  CHECK(e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 2, 500}));
+  // Make sure to remove orders from portfolios
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 993 USD, \nNahum&apos;s Portfolio: 6 BTC, 494 USD, \nOfria&apos;s Portfolio: 42 ETH, \n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 1000 USD, 
+Nahum\'s Portfolio: 10 BTC, 500 USD, 
+Ofria\'s Portfolio: 44 ETH, 
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 993 USD, 
+Nahum\'s Portfolio: 6 BTC, 494 USD, 
+Ofria\'s Portfolio: 42 ETH, 
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 1000 USD, 
+Nahum's Portfolio: 10 BTC, 500 USD, 
+Ofria's Portfolio: 44 ETH, 
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 993 USD, 
+Nahum's Portfolio: 6 BTC, 494 USD, 
+Ofria's Portfolio: 42 ETH, 
+</span></pre></tr></table>
+<h2 id="Test7">Test Case 7: PrintUsersOrders (No trades)</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  std::ostringstream oss;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 10);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;USD&quot;, 500);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 1000);
+  e.MakeDeposit(&quot;Ofria&quot;, &quot;ETH&quot;, 44);
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 1000 USD, \nNahum&apos;s Portfolio: 10 BTC, 500 USD, \nOfria&apos;s Portfolio: 44 ETH, \n&quot;);
+  e.PrintUsersOrders (std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders (oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nDolson&apos;s Filled Orders (in chronological order):\nNahum&apos;s Open Orders (in chronological order):\nNahum&apos;s Filled Orders (in chronological order):\nOfria&apos;s Open Orders (in chronological order):\nOfria&apos;s Filled Orders (in chronological order):\n&quot;);
+  CHECK(!e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 50, 1000}));
+  // Can&apos;t place order because Nahum doesn&apos;t have enough BTC
+  CHECK(!e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 50, 200}));
+  // Can&apos;t place order because Nahum doesn&apos;t have enough USD
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 4, 1000}));
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;ETH&quot;, 3, 2}));
+  CHECK(e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 7, 1}));
+  CHECK(e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 2, 500}));
+  // Make sure to remove orders from portfolios
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 993 USD, \nNahum&apos;s Portfolio: 6 BTC, 494 USD, \nOfria&apos;s Portfolio: 42 ETH, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders (oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nBuy 7 BTC at 1 USD by Dolson\nDolson&apos;s Filled Orders (in chronological order):\nNahum&apos;s Open Orders (in chronological order):\nSell 4 BTC at 1000 USD by Nahum\nBuy 3 ETH at 2 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\nOfria&apos;s Open Orders (in chronological order):\nSell 2 ETH at 500 USD by Ofria\nOfria&apos;s Filled Orders (in chronological order):\n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 1000 USD, 
+Nahum\'s Portfolio: 10 BTC, 500 USD, 
+Ofria\'s Portfolio: 44 ETH, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Dolson\'s Filled Orders (in chronological order):
+Nahum\'s Open Orders (in chronological order):
+Nahum\'s Filled Orders (in chronological order):
+Ofria\'s Open Orders (in chronological order):
+Ofria\'s Filled Orders (in chronological order):
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 993 USD, 
+Nahum\'s Portfolio: 6 BTC, 494 USD, 
+Ofria\'s Portfolio: 42 ETH, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Buy 7 BTC at 1 USD by Dolson
+Dolson\'s Filled Orders (in chronological order):
+Nahum\'s Open Orders (in chronological order):
+Sell 4 BTC at 1000 USD by Nahum
+Buy 3 ETH at 2 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+Ofria\'s Open Orders (in chronological order):
+Sell 2 ETH at 500 USD by Ofria
+Ofria\'s Filled Orders (in chronological order):
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 1000 USD, 
+Nahum's Portfolio: 10 BTC, 500 USD, 
+Ofria's Portfolio: 44 ETH, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Nahum's Filled Orders (in chronological order):
+Ofria's Open Orders (in chronological order):
+Ofria's Filled Orders (in chronological order):
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 993 USD, 
+Nahum's Portfolio: 6 BTC, 494 USD, 
+Ofria's Portfolio: 42 ETH, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 7 BTC at 1 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Sell 4 BTC at 1000 USD by Nahum
+Buy 3 ETH at 2 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+Ofria's Open Orders (in chronological order):
+Sell 2 ETH at 500 USD by Ofria
+Ofria's Filled Orders (in chronological order):
+</span></pre></tr></table>
+<h2 id="Test8">Test Case 8: AddOrder (Exact Price Complete Trades)</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  std::ostringstream oss;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 10);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 5555);
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 5, 100}));
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 5555 USD, \nNahum&apos;s Portfolio: 5 BTC, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nDolson&apos;s Filled Orders (in chronological order):\nNahum&apos;s Open Orders (in chronological order):\nSell 5 BTC at 100 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  CHECK(e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 5, 100}));
+  // This trade exactly matches Nahum&apos;s Sell
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 5 BTC, 5055 USD, \nNahum&apos;s Portfolio: 5 BTC, 500 USD, \n&quot;);
+  e.PrintUsersOrders (std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders (oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nDolson&apos;s Filled Orders (in chronological order):\nBuy 5 BTC at 100 USD by Dolson\nNahum&apos;s Open Orders (in chronological order):\nNahum&apos;s Filled Orders (in chronological order):\nSell 5 BTC at 100 USD by Nahum\n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 5555 USD, 
+Nahum\'s Portfolio: 5 BTC, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Dolson\'s Filled Orders (in chronological order):
+Nahum\'s Open Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+
+
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 5 BTC, 5055 USD, 
+Nahum\'s Portfolio: 5 BTC, 500 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Dolson\'s Filled Orders (in chronological order):
+Buy 5 BTC at 100 USD by Dolson
+Nahum\'s Open Orders (in chronological order):
+Nahum\'s Filled Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 5555 USD, 
+Nahum's Portfolio: 5 BTC, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+
+
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 5 BTC, 5055 USD, 
+Nahum's Portfolio: 5 BTC, 500 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 100 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+</span></pre></tr></table>
+<h2 id="Test9">Test Case 9: AddOrder (Exact Price Incomplete Trades)</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  std::ostringstream oss;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 10);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 5555);
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 5, 100}));
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 5555 USD, \nNahum&apos;s Portfolio: 5 BTC, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nDolson&apos;s Filled Orders (in chronological order):\nNahum&apos;s Open Orders (in chronological order):\nSell 5 BTC at 100 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  CHECK(e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 7, 100}));
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 5 BTC, 4855 USD, \nNahum&apos;s Portfolio: 5 BTC, 500 USD, \n&quot;);
+  e.PrintUsersOrders (std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders (oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nBuy 2 BTC at 100 USD by Dolson\nDolson&apos;s Filled Orders (in chronological order):\nBuy 5 BTC at 100 USD by Dolson\nNahum&apos;s Open Orders (in chronological order):\nNahum&apos;s Filled Orders (in chronological order):\nSell 5 BTC at 100 USD by Nahum\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 3, 100}));
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 7 BTC, 4855 USD, \nNahum&apos;s Portfolio: 2 BTC, 700 USD, \n&quot;);
+  e.PrintUsersOrders (std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders (oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nDolson&apos;s Filled Orders (in chronological order):\nBuy 5 BTC at 100 USD by Dolson\nBuy 2 BTC at 100 USD by Dolson\nNahum&apos;s Open Orders (in chronological order):\nSell 1 BTC at 100 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\nSell 5 BTC at 100 USD by Nahum\nSell 2 BTC at 100 USD by Nahum\n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 5555 USD, 
+Nahum\'s Portfolio: 5 BTC, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Dolson\'s Filled Orders (in chronological order):
+Nahum\'s Open Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+
+
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 5 BTC, 4855 USD, 
+Nahum\'s Portfolio: 5 BTC, 500 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Buy 2 BTC at 100 USD by Dolson
+Dolson\'s Filled Orders (in chronological order):
+Buy 5 BTC at 100 USD by Dolson
+Nahum\'s Open Orders (in chronological order):
+Nahum\'s Filled Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+
+
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 7 BTC, 4855 USD, 
+Nahum\'s Portfolio: 2 BTC, 700 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Dolson\'s Filled Orders (in chronological order):
+Buy 5 BTC at 100 USD by Dolson
+Buy 2 BTC at 100 USD by Dolson
+Nahum\'s Open Orders (in chronological order):
+Sell 1 BTC at 100 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Sell 2 BTC at 100 USD by Nahum
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 5555 USD, 
+Nahum's Portfolio: 5 BTC, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+
+
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 5 BTC, 4855 USD, 
+Nahum's Portfolio: 5 BTC, 500 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 2 BTC at 100 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 100 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+
+
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 7 BTC, 4855 USD, 
+Nahum's Portfolio: 2 BTC, 700 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 100 USD by Dolson
+Buy 2 BTC at 100 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Sell 1 BTC at 100 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Sell 2 BTC at 100 USD by Nahum
+</span></pre></tr></table>
+<h2 id="Test10">Test Case 10: AddOrder (Different Taker and Maker Prices)</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  std::ostringstream oss;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 1000);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 555555);
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 5, 100}));
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 555555 USD, \nNahum&apos;s Portfolio: 995 BTC, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nDolson&apos;s Filled Orders (in chronological order):\nNahum&apos;s Open Orders (in chronological order):\nSell 5 BTC at 100 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  CHECK(e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 70, 150}));
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 5 BTC, 545055 USD, \nNahum&apos;s Portfolio: 995 BTC, 750 USD, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nBuy 65 BTC at 150 USD by Dolson\nDolson&apos;s Filled Orders (in chronological order):\nBuy 5 BTC at 150 USD by Dolson\nNahum&apos;s Open Orders (in chronological order):\nNahum&apos;s Filled Orders (in chronological order):\nSell 5 BTC at 150 USD by Nahum\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 30, 125}));
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 35 BTC, 545055 USD, \nNahum&apos;s Portfolio: 965 BTC, 4500 USD, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nBuy 35 BTC at 150 USD by Dolson\nDolson&apos;s Filled Orders (in chronological order):\nBuy 5 BTC at 150 USD by Dolson\nBuy 30 BTC at 125 USD by Dolson\nNahum&apos;s Open Orders (in chronological order):\nNahum&apos;s Filled Orders (in chronological order):\nSell 5 BTC at 150 USD by Nahum\nSell 30 BTC at 125 USD by Nahum\n&quot;);
+  CHECK(e.MakeWithdrawal(&quot;Dolson&quot;, &quot;BTC&quot;, 35));
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 555555 USD, 
+Nahum\'s Portfolio: 995 BTC, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Dolson\'s Filled Orders (in chronological order):
+Nahum\'s Open Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+
+
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 5 BTC, 545055 USD, 
+Nahum\'s Portfolio: 995 BTC, 750 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Buy 65 BTC at 150 USD by Dolson
+Dolson\'s Filled Orders (in chronological order):
+Buy 5 BTC at 150 USD by Dolson
+Nahum\'s Open Orders (in chronological order):
+Nahum\'s Filled Orders (in chronological order):
+Sell 5 BTC at 150 USD by Nahum
+
+
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 35 BTC, 545055 USD, 
+Nahum\'s Portfolio: 965 BTC, 4500 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Buy 35 BTC at 150 USD by Dolson
+Dolson\'s Filled Orders (in chronological order):
+Buy 5 BTC at 150 USD by Dolson
+Buy 30 BTC at 125 USD by Dolson
+Nahum\'s Open Orders (in chronological order):
+Nahum\'s Filled Orders (in chronological order):
+Sell 5 BTC at 150 USD by Nahum
+Sell 30 BTC at 125 USD by Nahum
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 555555 USD, 
+Nahum's Portfolio: 995 BTC, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+
+
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 5 BTC, 545055 USD, 
+Nahum's Portfolio: 995 BTC, 750 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 65 BTC at 150 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 150 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 150 USD by Nahum
+
+
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 35 BTC, 545055 USD, 
+Nahum's Portfolio: 965 BTC, 4500 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 35 BTC at 150 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 150 USD by Dolson
+Buy 30 BTC at 125 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 150 USD by Nahum
+Sell 30 BTC at 125 USD by Nahum
+</span></pre></tr></table>
+<h2 id="Test11">Test Case 11: PrintTradeHistory</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  std::ostringstream oss;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 1000);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 555555);
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 5, 100}));
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 555555 USD, \nNahum&apos;s Portfolio: 995 BTC, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nDolson&apos;s Filled Orders (in chronological order):\nNahum&apos;s Open Orders (in chronological order):\nSell 5 BTC at 100 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  CHECK(e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 70, 150}));
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 5 BTC, 545055 USD, \nNahum&apos;s Portfolio: 995 BTC, 750 USD, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nBuy 65 BTC at 150 USD by Dolson\nDolson&apos;s Filled Orders (in chronological order):\nBuy 5 BTC at 150 USD by Dolson\nNahum&apos;s Open Orders (in chronological order):\nNahum&apos;s Filled Orders (in chronological order):\nSell 5 BTC at 150 USD by Nahum\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 30, 125}));
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 35 BTC, 545055 USD, \nNahum&apos;s Portfolio: 965 BTC, 4500 USD, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nBuy 35 BTC at 150 USD by Dolson\nDolson&apos;s Filled Orders (in chronological order):\nBuy 5 BTC at 150 USD by Dolson\nBuy 30 BTC at 125 USD by Dolson\nNahum&apos;s Open Orders (in chronological order):\nNahum&apos;s Filled Orders (in chronological order):\nSell 5 BTC at 150 USD by Nahum\nSell 30 BTC at 125 USD by Nahum\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  CHECK(e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 40, 120}));
+  e.PrintTradeHistory(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintTradeHistory(oss);
+  CHECK(oss.str() == &quot;Trade History (in chronological order):\nDolson Bought 5 of BTC From Nahum for 150 USD\nDolson Bought 30 of BTC From Nahum for 125 USD\nDolson Bought 35 of BTC From Nahum for 120 USD\n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 555555 USD, 
+Nahum\'s Portfolio: 995 BTC, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Dolson\'s Filled Orders (in chronological order):
+Nahum\'s Open Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+
+
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 5 BTC, 545055 USD, 
+Nahum\'s Portfolio: 995 BTC, 750 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Buy 65 BTC at 150 USD by Dolson
+Dolson\'s Filled Orders (in chronological order):
+Buy 5 BTC at 150 USD by Dolson
+Nahum\'s Open Orders (in chronological order):
+Nahum\'s Filled Orders (in chronological order):
+Sell 5 BTC at 150 USD by Nahum
+
+
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 35 BTC, 545055 USD, 
+Nahum\'s Portfolio: 965 BTC, 4500 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Buy 35 BTC at 150 USD by Dolson
+Dolson\'s Filled Orders (in chronological order):
+Buy 5 BTC at 150 USD by Dolson
+Buy 30 BTC at 125 USD by Dolson
+Nahum\'s Open Orders (in chronological order):
+Nahum\'s Filled Orders (in chronological order):
+Sell 5 BTC at 150 USD by Nahum
+Sell 30 BTC at 125 USD by Nahum
+
+
+Trade History (in chronological order):
+Dolson Bought 5 of BTC From Nahum for 150 USD
+Dolson Bought 30 of BTC From Nahum for 125 USD
+Dolson Bought 35 of BTC From Nahum for 120 USD
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 555555 USD, 
+Nahum's Portfolio: 995 BTC, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+
+
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 5 BTC, 545055 USD, 
+Nahum's Portfolio: 995 BTC, 750 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 65 BTC at 150 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 150 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 150 USD by Nahum
+
+
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 35 BTC, 545055 USD, 
+Nahum's Portfolio: 965 BTC, 4500 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 35 BTC at 150 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 150 USD by Dolson
+Buy 30 BTC at 125 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 150 USD by Nahum
+Sell 30 BTC at 125 USD by Nahum
+
+
+Trade History (in chronological order):
+Dolson Bought 5 of BTC From Nahum for 150 USD
+Dolson Bought 30 of BTC From Nahum for 125 USD
+Dolson Bought 35 of BTC From Nahum for 120 USD
+</span></pre></tr></table>
+<h2 id="Test12">Test Case 12: Many Trades</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  std::ostringstream oss;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 1000);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;USD&quot;, 100000);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 555555);
+  e.MakeDeposit(&quot;Ofria&quot;, &quot;ETH&quot;, 678);
+  e.MakeDeposit(&quot;Zaabar&quot;, &quot;USD&quot;, 12121212);
+  e.MakeDeposit(&quot;Zaabar&quot;, &quot;LTC&quot;, 4563);
+  // BTC rough price 1000
+  // ETH rough price 100
+  // LTC rough price 500
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 5, 1100});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 100, 1200});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 7, 800});
+  e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 1, 950});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 12, 156});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 10, 160});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Sell&quot;, &quot;LTC&quot;, 10, 550});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;LTC&quot;, 10, 450});
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 554605 USD, \nNahum&apos;s Portfolio: 895 BTC, 94400 USD, \nOfria&apos;s Portfolio: 656 ETH, \nZaabar&apos;s Portfolio: 4553 LTC, 12116712 USD, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nBuy 1 BTC at 950 USD by Dolson\nDolson&apos;s Filled Orders (in chronological order):\nNahum&apos;s Open Orders (in chronological order):\nSell 5 BTC at 1100 USD by Nahum\nSell 100 BTC at 1200 USD by Nahum\nBuy 7 BTC at 800 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\nOfria&apos;s Open Orders (in chronological order):\nSell 12 ETH at 156 USD by Ofria\nSell 10 ETH at 160 USD by Ofria\nOfria&apos;s Filled Orders (in chronological order):\nZaabar&apos;s Open Orders (in chronological order):\nSell 10 LTC at 550 USD by Zaabar\nBuy 10 LTC at 450 USD by Zaabar\nZaabar&apos;s Filled Orders (in chronological order):\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;LTC&quot;, 55, 600});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;ETH&quot;, 30, 158});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 10, 140});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 1000, 1500});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;ETH&quot;, 200, 1200});
+  e.PrintTradeHistory(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintTradeHistory(oss);
+  CHECK(oss.str() == &quot;Trade History (in chronological order):\nNahum Bought 10 of LTC From Zaabar for 600 USD\nNahum Bought 12 of ETH From Ofria for 158 USD\nNahum Bought 10 of ETH From Ofria for 140 USD\nZaabar Bought 5 of BTC From Nahum for 1500 USD\nZaabar Bought 100 of BTC From Nahum for 1500 USD\nZaabar Bought 10 of ETH From Ofria for 1200 USD\n&quot;);
+  std::cout &lt;&lt; std::endl;
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 554605 USD, \nNahum&apos;s Portfolio: 895 BTC, 22 ETH, 10 LTC, 214160 USD, \nOfria&apos;s Portfolio: 646 ETH, 15296 USD, \nZaabar&apos;s Portfolio: 105 BTC, 10 ETH, 4553 LTC, 10382712 USD, \n&quot;);
+  std::cout &lt;&lt; std::endl;
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nBuy 1 BTC at 950 USD by Dolson\nDolson&apos;s Filled Orders (in chronological order):\nNahum&apos;s Open Orders (in chronological order):\nBuy 7 BTC at 800 USD by Nahum\nBuy 45 LTC at 600 USD by Nahum\nBuy 8 ETH at 158 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\nBuy 10 LTC at 600 USD by Nahum\nBuy 12 ETH at 158 USD by Nahum\nBuy 10 ETH at 140 USD by Nahum\nSell 5 BTC at 1500 USD by Nahum\nSell 100 BTC at 1500 USD by Nahum\nOfria&apos;s Open Orders (in chronological order):\nOfria&apos;s Filled Orders (in chronological order):\nSell 12 ETH at 158 USD by Ofria\nSell 10 ETH at 140 USD by Ofria\nSell 10 ETH at 1200 USD by Ofria\nZaabar&apos;s Open Orders (in chronological order):\nBuy 10 LTC at 450 USD by Zaabar\nBuy 895 BTC at 1500 USD by Zaabar\nBuy 190 ETH at 1200 USD by Zaabar\nZaabar&apos;s Filled Orders (in chronological order):\nSell 10 LTC at 600 USD by Zaabar\nBuy 5 BTC at 1500 USD by Zaabar\nBuy 100 BTC at 1500 USD by Zaabar\nBuy 10 ETH at 1200 USD by Zaabar\n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 554605 USD, 
+Nahum\'s Portfolio: 895 BTC, 94400 USD, 
+Ofria\'s Portfolio: 656 ETH, 
+Zaabar\'s Portfolio: 4553 LTC, 12116712 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Buy 1 BTC at 950 USD by Dolson
+Dolson\'s Filled Orders (in chronological order):
+Nahum\'s Open Orders (in chronological order):
+Sell 5 BTC at 1100 USD by Nahum
+Sell 100 BTC at 1200 USD by Nahum
+Buy 7 BTC at 800 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+Ofria\'s Open Orders (in chronological order):
+Sell 12 ETH at 156 USD by Ofria
+Sell 10 ETH at 160 USD by Ofria
+Ofria\'s Filled Orders (in chronological order):
+Zaabar\'s Open Orders (in chronological order):
+Sell 10 LTC at 550 USD by Zaabar
+Buy 10 LTC at 450 USD by Zaabar
+Zaabar\'s Filled Orders (in chronological order):
+
+
+Trade History (in chronological order):
+Nahum Bought 10 of LTC From Zaabar for 600 USD
+Nahum Bought 12 of ETH From Ofria for 158 USD
+Nahum Bought 10 of ETH From Ofria for 140 USD
+Zaabar Bought 5 of BTC From Nahum for 1500 USD
+Zaabar Bought 100 of BTC From Nahum for 1500 USD
+Zaabar Bought 10 of ETH From Ofria for 1200 USD
+
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 554605 USD, 
+Nahum\'s Portfolio: 895 BTC, 22 ETH, 10 LTC, 214160 USD, 
+Ofria\'s Portfolio: 646 ETH, 15296 USD, 
+Zaabar\'s Portfolio: 105 BTC, 10 ETH, 4553 LTC, 10382712 USD, 
+
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Buy 1 BTC at 950 USD by Dolson
+Dolson\'s Filled Orders (in chronological order):
+Nahum\'s Open Orders (in chronological order):
+Buy 7 BTC at 800 USD by Nahum
+Buy 45 LTC at 600 USD by Nahum
+Buy 8 ETH at 158 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+Buy 10 LTC at 600 USD by Nahum
+Buy 12 ETH at 158 USD by Nahum
+Buy 10 ETH at 140 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 100 BTC at 1500 USD by Nahum
+Ofria\'s Open Orders (in chronological order):
+Ofria\'s Filled Orders (in chronological order):
+Sell 12 ETH at 158 USD by Ofria
+Sell 10 ETH at 140 USD by Ofria
+Sell 10 ETH at 1200 USD by Ofria
+Zaabar\'s Open Orders (in chronological order):
+Buy 10 LTC at 450 USD by Zaabar
+Buy 895 BTC at 1500 USD by Zaabar
+Buy 190 ETH at 1200 USD by Zaabar
+Zaabar\'s Filled Orders (in chronological order):
+Sell 10 LTC at 600 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 100 BTC at 1500 USD by Zaabar
+Buy 10 ETH at 1200 USD by Zaabar
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 554605 USD, 
+Nahum's Portfolio: 895 BTC, 94400 USD, 
+Ofria's Portfolio: 656 ETH, 
+Zaabar's Portfolio: 4553 LTC, 12116712 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 1 BTC at 950 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Sell 5 BTC at 1100 USD by Nahum
+Sell 100 BTC at 1200 USD by Nahum
+Buy 7 BTC at 800 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+Ofria's Open Orders (in chronological order):
+Sell 12 ETH at 156 USD by Ofria
+Sell 10 ETH at 160 USD by Ofria
+Ofria's Filled Orders (in chronological order):
+Zaabar's Open Orders (in chronological order):
+Sell 10 LTC at 550 USD by Zaabar
+Buy 10 LTC at 450 USD by Zaabar
+Zaabar's Filled Orders (in chronological order):
+
+
+Trade History (in chronological order):
+Nahum Bought 10 of LTC From Zaabar for 600 USD
+Nahum Bought 12 of ETH From Ofria for 158 USD
+Nahum Bought 10 of ETH From Ofria for 140 USD
+Zaabar Bought 5 of BTC From Nahum for 1500 USD
+Zaabar Bought 100 of BTC From Nahum for 1500 USD
+Zaabar Bought 10 of ETH From Ofria for 1200 USD
+
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 554605 USD, 
+Nahum's Portfolio: 895 BTC, 22 ETH, 10 LTC, 214160 USD, 
+Ofria's Portfolio: 646 ETH, 15296 USD, 
+Zaabar's Portfolio: 105 BTC, 10 ETH, 4553 LTC, 10382712 USD, 
+
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 1 BTC at 950 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Buy 7 BTC at 800 USD by Nahum
+Buy 45 LTC at 600 USD by Nahum
+Buy 8 ETH at 158 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+Buy 10 LTC at 600 USD by Nahum
+Buy 12 ETH at 158 USD by Nahum
+Buy 10 ETH at 140 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 100 BTC at 1500 USD by Nahum
+Ofria's Open Orders (in chronological order):
+Ofria's Filled Orders (in chronological order):
+Sell 12 ETH at 158 USD by Ofria
+Sell 10 ETH at 140 USD by Ofria
+Sell 10 ETH at 1200 USD by Ofria
+Zaabar's Open Orders (in chronological order):
+Buy 10 LTC at 450 USD by Zaabar
+Buy 895 BTC at 1500 USD by Zaabar
+Buy 190 ETH at 1200 USD by Zaabar
+Zaabar's Filled Orders (in chronological order):
+Sell 10 LTC at 600 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 100 BTC at 1500 USD by Zaabar
+Buy 10 ETH at 1200 USD by Zaabar
+</span></pre></tr></table>
+<h2 id="Test13">Test Case 13: Many Trades (more)</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  std::ostringstream oss;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 1000);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;USD&quot;, 100000);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 555555);
+  e.MakeDeposit(&quot;Ofria&quot;, &quot;ETH&quot;, 678);
+  e.MakeDeposit(&quot;Zaabar&quot;, &quot;USD&quot;, 12121212);
+  e.MakeDeposit(&quot;Zaabar&quot;, &quot;LTC&quot;, 4563);
+  // BTC rough price 1000
+  // ETH rough price 100
+  // LTC rough price 500
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 5, 1100});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 100, 1200});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 7, 800});
+  e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 1, 950});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 12, 156});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 10, 160});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Sell&quot;, &quot;LTC&quot;, 10, 550});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;LTC&quot;, 10, 450});
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 554605 USD, \nNahum&apos;s Portfolio: 895 BTC, 94400 USD, \nOfria&apos;s Portfolio: 656 ETH, \nZaabar&apos;s Portfolio: 4553 LTC, 12116712 USD, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nBuy 1 BTC at 950 USD by Dolson\nDolson&apos;s Filled Orders (in chronological order):\nNahum&apos;s Open Orders (in chronological order):\nSell 5 BTC at 1100 USD by Nahum\nSell 100 BTC at 1200 USD by Nahum\nBuy 7 BTC at 800 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\nOfria&apos;s Open Orders (in chronological order):\nSell 12 ETH at 156 USD by Ofria\nSell 10 ETH at 160 USD by Ofria\nOfria&apos;s Filled Orders (in chronological order):\nZaabar&apos;s Open Orders (in chronological order):\nSell 10 LTC at 550 USD by Zaabar\nBuy 10 LTC at 450 USD by Zaabar\nZaabar&apos;s Filled Orders (in chronological order):\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;LTC&quot;, 55, 600});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;ETH&quot;, 30, 158});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 10, 140});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 10, 1500});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;ETH&quot;, 200, 1200});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 30, 158});
+  e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 20, 2000});
+  e.PrintTradeHistory(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintTradeHistory(oss);
+  CHECK(oss.str() == &quot;Trade History (in chronological order):\nNahum Bought 10 of LTC From Zaabar for 600 USD\nNahum Bought 12 of ETH From Ofria for 158 USD\nNahum Bought 10 of ETH From Ofria for 140 USD\nZaabar Bought 5 of BTC From Nahum for 1500 USD\nZaabar Bought 5 of BTC From Nahum for 1500 USD\nZaabar Bought 10 of ETH From Ofria for 1200 USD\nDolson Bought 1 of BTC From Nahum for 158 USD\nNahum Bought 7 of BTC From Nahum for 158 USD\nDolson Bought 20 of BTC From Nahum for 2000 USD\n&quot;);
+  std::cout &lt;&lt; std::endl;
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 21 BTC, 514605 USD, \nNahum&apos;s Portfolio: 872 BTC, 22 ETH, 10 LTC, 112924 USD, \nOfria&apos;s Portfolio: 646 ETH, 15296 USD, \nZaabar&apos;s Portfolio: 10 BTC, 10 ETH, 4553 LTC, 11867712 USD, \n&quot;);
+  std::cout &lt;&lt; std::endl;
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nDolson&apos;s Filled Orders (in chronological order):\nBuy 1 BTC at 158 USD by Dolson\nBuy 20 BTC at 2000 USD by Dolson\nNahum&apos;s Open Orders (in chronological order):\nSell 95 BTC at 1200 USD by Nahum\nBuy 45 LTC at 600 USD by Nahum\nBuy 8 ETH at 158 USD by Nahum\nSell 2 BTC at 158 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\nBuy 10 LTC at 600 USD by Nahum\nBuy 12 ETH at 158 USD by Nahum\nBuy 10 ETH at 140 USD by Nahum\nSell 5 BTC at 1500 USD by Nahum\nSell 5 BTC at 1500 USD by Nahum\nSell 1 BTC at 158 USD by Nahum\nBuy 7 BTC at 158 USD by Nahum\nSell 7 BTC at 158 USD by Nahum\nSell 20 BTC at 2000 USD by Nahum\nOfria&apos;s Open Orders (in chronological order):\nOfria&apos;s Filled Orders (in chronological order):\nSell 12 ETH at 158 USD by Ofria\nSell 10 ETH at 140 USD by Ofria\nSell 10 ETH at 1200 USD by Ofria\nZaabar&apos;s Open Orders (in chronological order):\nBuy 10 LTC at 450 USD by Zaabar\nBuy 190 ETH at 1200 USD by Zaabar\nZaabar&apos;s Filled Orders (in chronological order):\nSell 10 LTC at 600 USD by Zaabar\nBuy 5 BTC at 1500 USD by Zaabar\nBuy 5 BTC at 1500 USD by Zaabar\nBuy 10 ETH at 1200 USD by Zaabar\n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 554605 USD, 
+Nahum\'s Portfolio: 895 BTC, 94400 USD, 
+Ofria\'s Portfolio: 656 ETH, 
+Zaabar\'s Portfolio: 4553 LTC, 12116712 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Buy 1 BTC at 950 USD by Dolson
+Dolson\'s Filled Orders (in chronological order):
+Nahum\'s Open Orders (in chronological order):
+Sell 5 BTC at 1100 USD by Nahum
+Sell 100 BTC at 1200 USD by Nahum
+Buy 7 BTC at 800 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+Ofria\'s Open Orders (in chronological order):
+Sell 12 ETH at 156 USD by Ofria
+Sell 10 ETH at 160 USD by Ofria
+Ofria\'s Filled Orders (in chronological order):
+Zaabar\'s Open Orders (in chronological order):
+Sell 10 LTC at 550 USD by Zaabar
+Buy 10 LTC at 450 USD by Zaabar
+Zaabar\'s Filled Orders (in chronological order):
+
+
+Trade History (in chronological order):
+Nahum Bought 10 of LTC From Zaabar for 600 USD
+Nahum Bought 12 of ETH From Ofria for 158 USD
+Nahum Bought 10 of ETH From Ofria for 140 USD
+Zaabar Bought 5 of BTC From Nahum for 1500 USD
+Zaabar Bought 5 of BTC From Nahum for 1500 USD
+Zaabar Bought 10 of ETH From Ofria for 1200 USD
+Dolson Bought 1 of BTC From Nahum for 158 USD
+Nahum Bought 7 of BTC From Nahum for 158 USD
+Dolson Bought 20 of BTC From Nahum for 2000 USD
+
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 21 BTC, 514605 USD, 
+Nahum\'s Portfolio: 872 BTC, 22 ETH, 10 LTC, 112924 USD, 
+Ofria\'s Portfolio: 646 ETH, 15296 USD, 
+Zaabar\'s Portfolio: 10 BTC, 10 ETH, 4553 LTC, 11867712 USD, 
+
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Dolson\'s Filled Orders (in chronological order):
+Buy 1 BTC at 158 USD by Dolson
+Buy 20 BTC at 2000 USD by Dolson
+Nahum\'s Open Orders (in chronological order):
+Sell 95 BTC at 1200 USD by Nahum
+Buy 45 LTC at 600 USD by Nahum
+Buy 8 ETH at 158 USD by Nahum
+Sell 2 BTC at 158 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+Buy 10 LTC at 600 USD by Nahum
+Buy 12 ETH at 158 USD by Nahum
+Buy 10 ETH at 140 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 1 BTC at 158 USD by Nahum
+Buy 7 BTC at 158 USD by Nahum
+Sell 7 BTC at 158 USD by Nahum
+Sell 20 BTC at 2000 USD by Nahum
+Ofria\'s Open Orders (in chronological order):
+Ofria\'s Filled Orders (in chronological order):
+Sell 12 ETH at 158 USD by Ofria
+Sell 10 ETH at 140 USD by Ofria
+Sell 10 ETH at 1200 USD by Ofria
+Zaabar\'s Open Orders (in chronological order):
+Buy 10 LTC at 450 USD by Zaabar
+Buy 190 ETH at 1200 USD by Zaabar
+Zaabar\'s Filled Orders (in chronological order):
+Sell 10 LTC at 600 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 10 ETH at 1200 USD by Zaabar
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 554605 USD, 
+Nahum's Portfolio: 895 BTC, 94400 USD, 
+Ofria's Portfolio: 656 ETH, 
+Zaabar's Portfolio: 4553 LTC, 12116712 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 1 BTC at 950 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Sell 5 BTC at 1100 USD by Nahum
+Sell 100 BTC at 1200 USD by Nahum
+Buy 7 BTC at 800 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+Ofria's Open Orders (in chronological order):
+Sell 12 ETH at 156 USD by Ofria
+Sell 10 ETH at 160 USD by Ofria
+Ofria's Filled Orders (in chronological order):
+Zaabar's Open Orders (in chronological order):
+Sell 10 LTC at 550 USD by Zaabar
+Buy 10 LTC at 450 USD by Zaabar
+Zaabar's Filled Orders (in chronological order):
+
+
+Trade History (in chronological order):
+Nahum Bought 10 of LTC From Zaabar for 600 USD
+Nahum Bought 12 of ETH From Ofria for 158 USD
+Nahum Bought 10 of ETH From Ofria for 140 USD
+Zaabar Bought 5 of BTC From Nahum for 1500 USD
+Zaabar Bought 5 of BTC From Nahum for 1500 USD
+Zaabar Bought 10 of ETH From Ofria for 1200 USD
+Dolson Bought 1 of BTC From Nahum for 158 USD
+Nahum Bought 7 of BTC From Nahum for 158 USD
+Dolson Bought 20 of BTC From Nahum for 2000 USD
+
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 21 BTC, 514605 USD, 
+Nahum's Portfolio: 872 BTC, 22 ETH, 10 LTC, 112924 USD, 
+Ofria's Portfolio: 646 ETH, 15296 USD, 
+Zaabar's Portfolio: 10 BTC, 10 ETH, 4553 LTC, 11867712 USD, 
+
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Buy 1 BTC at 158 USD by Dolson
+Buy 20 BTC at 2000 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Sell 95 BTC at 1200 USD by Nahum
+Buy 45 LTC at 600 USD by Nahum
+Buy 8 ETH at 158 USD by Nahum
+Sell 2 BTC at 158 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+Buy 10 LTC at 600 USD by Nahum
+Buy 12 ETH at 158 USD by Nahum
+Buy 10 ETH at 140 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 1 BTC at 158 USD by Nahum
+Buy 7 BTC at 158 USD by Nahum
+Sell 7 BTC at 158 USD by Nahum
+Sell 20 BTC at 2000 USD by Nahum
+Ofria's Open Orders (in chronological order):
+Ofria's Filled Orders (in chronological order):
+Sell 12 ETH at 158 USD by Ofria
+Sell 10 ETH at 140 USD by Ofria
+Sell 10 ETH at 1200 USD by Ofria
+Zaabar's Open Orders (in chronological order):
+Buy 10 LTC at 450 USD by Zaabar
+Buy 190 ETH at 1200 USD by Zaabar
+Zaabar's Filled Orders (in chronological order):
+Sell 10 LTC at 600 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 10 ETH at 1200 USD by Zaabar
+</span></pre></tr></table>
+<h2 id="Test14">Test Case 14: PrintBidAskSpread</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  std::ostringstream oss;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 1000);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;USD&quot;, 100000);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 555555);
+  e.MakeDeposit(&quot;Ofria&quot;, &quot;ETH&quot;, 678);
+  e.MakeDeposit(&quot;Zaabar&quot;, &quot;USD&quot;, 12121212);
+  e.MakeDeposit(&quot;Zaabar&quot;, &quot;LTC&quot;, 4563);
+  // BTC rough price 1000
+  // ETH rough price 100
+  // LTC rough price 500
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 5, 1100});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 100, 1200});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 7, 800});
+  e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 1, 950});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 12, 156});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 10, 160});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Sell&quot;, &quot;LTC&quot;, 10, 550});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;LTC&quot;, 10, 450});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;LTC&quot;, 55, 600});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;ETH&quot;, 30, 158});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 10, 140});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 10, 1500});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;ETH&quot;, 200, 1200});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 30, 158});
+  e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 20, 2000});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 1, 1423});
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 21 BTC, 514605 USD, \nNahum&apos;s Portfolio: 872 BTC, 21 ETH, 10 LTC, 112924 USD, \nOfria&apos;s Portfolio: 646 ETH, 15296 USD, \nZaabar&apos;s Portfolio: 10 BTC, 10 ETH, 4553 LTC, 11867712 USD, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nDolson&apos;s Filled Orders (in chronological order):\nBuy 1 BTC at 158 USD by Dolson\nBuy 20 BTC at 2000 USD by Dolson\nNahum&apos;s Open Orders (in chronological order):\nSell 95 BTC at 1200 USD by Nahum\nBuy 45 LTC at 600 USD by Nahum\nBuy 8 ETH at 158 USD by Nahum\nSell 2 BTC at 158 USD by Nahum\nSell 1 ETH at 1423 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\nBuy 10 LTC at 600 USD by Nahum\nBuy 12 ETH at 158 USD by Nahum\nBuy 10 ETH at 140 USD by Nahum\nSell 5 BTC at 1500 USD by Nahum\nSell 5 BTC at 1500 USD by Nahum\nSell 1 BTC at 158 USD by Nahum\nBuy 7 BTC at 158 USD by Nahum\nSell 7 BTC at 158 USD by Nahum\nSell 20 BTC at 2000 USD by Nahum\nOfria&apos;s Open Orders (in chronological order):\nOfria&apos;s Filled Orders (in chronological order):\nSell 12 ETH at 158 USD by Ofria\nSell 10 ETH at 140 USD by Ofria\nSell 10 ETH at 1200 USD by Ofria\nZaabar&apos;s Open Orders (in chronological order):\nBuy 10 LTC at 450 USD by Zaabar\nBuy 190 ETH at 1200 USD by Zaabar\nZaabar&apos;s Filled Orders (in chronological order):\nSell 10 LTC at 600 USD by Zaabar\nBuy 5 BTC at 1500 USD by Zaabar\nBuy 5 BTC at 1500 USD by Zaabar\nBuy 10 ETH at 1200 USD by Zaabar\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  e.PrintBidAskSpread(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintBidAskSpread(oss);
+  CHECK(oss.str() == &quot;Asset Bid Ask Spread (in alphabetical order):\nBTC: Highest Open Buy = NA USD and Lowest Open Sell = 158 USD\nETH: Highest Open Buy = 1200 USD and Lowest Open Sell = 1423 USD\nLTC: Highest Open Buy = 600 USD and Lowest Open Sell = NA USD\n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 21 BTC, 514605 USD, 
+Nahum\'s Portfolio: 872 BTC, 21 ETH, 10 LTC, 112924 USD, 
+Ofria\'s Portfolio: 646 ETH, 15296 USD, 
+Zaabar\'s Portfolio: 10 BTC, 10 ETH, 4553 LTC, 11867712 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Dolson\'s Filled Orders (in chronological order):
+Buy 1 BTC at 158 USD by Dolson
+Buy 20 BTC at 2000 USD by Dolson
+Nahum\'s Open Orders (in chronological order):
+Sell 95 BTC at 1200 USD by Nahum
+Buy 45 LTC at 600 USD by Nahum
+Buy 8 ETH at 158 USD by Nahum
+Sell 2 BTC at 158 USD by Nahum
+Sell 1 ETH at 1423 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+Buy 10 LTC at 600 USD by Nahum
+Buy 12 ETH at 158 USD by Nahum
+Buy 10 ETH at 140 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 1 BTC at 158 USD by Nahum
+Buy 7 BTC at 158 USD by Nahum
+Sell 7 BTC at 158 USD by Nahum
+Sell 20 BTC at 2000 USD by Nahum
+Ofria\'s Open Orders (in chronological order):
+Ofria\'s Filled Orders (in chronological order):
+Sell 12 ETH at 158 USD by Ofria
+Sell 10 ETH at 140 USD by Ofria
+Sell 10 ETH at 1200 USD by Ofria
+Zaabar\'s Open Orders (in chronological order):
+Buy 10 LTC at 450 USD by Zaabar
+Buy 190 ETH at 1200 USD by Zaabar
+Zaabar\'s Filled Orders (in chronological order):
+Sell 10 LTC at 600 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 10 ETH at 1200 USD by Zaabar
+
+
+Asset Bid Ask Spread (in alphabetical order):
+BTC: Highest Open Buy = NA USD and Lowest Open Sell = 158 USD
+ETH: Highest Open Buy = 1200 USD and Lowest Open Sell = 1423 USD
+LTC: Highest Open Buy = 600 USD and Lowest Open Sell = NA USD
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 21 BTC, 514605 USD, 
+Nahum's Portfolio: 872 BTC, 21 ETH, 10 LTC, 112924 USD, 
+Ofria's Portfolio: 646 ETH, 15296 USD, 
+Zaabar's Portfolio: 10 BTC, 10 ETH, 4553 LTC, 11867712 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Buy 1 BTC at 158 USD by Dolson
+Buy 20 BTC at 2000 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Sell 95 BTC at 1200 USD by Nahum
+Buy 45 LTC at 600 USD by Nahum
+Buy 8 ETH at 158 USD by Nahum
+Sell 2 BTC at 158 USD by Nahum
+Sell 1 ETH at 1423 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+Buy 10 LTC at 600 USD by Nahum
+Buy 12 ETH at 158 USD by Nahum
+Buy 10 ETH at 140 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 1 BTC at 158 USD by Nahum
+Buy 7 BTC at 158 USD by Nahum
+Sell 7 BTC at 158 USD by Nahum
+Sell 20 BTC at 2000 USD by Nahum
+Ofria's Open Orders (in chronological order):
+Ofria's Filled Orders (in chronological order):
+Sell 12 ETH at 158 USD by Ofria
+Sell 10 ETH at 140 USD by Ofria
+Sell 10 ETH at 1200 USD by Ofria
+Zaabar's Open Orders (in chronological order):
+Buy 10 LTC at 450 USD by Zaabar
+Buy 190 ETH at 1200 USD by Zaabar
+Zaabar's Filled Orders (in chronological order):
+Sell 10 LTC at 600 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 10 ETH at 1200 USD by Zaabar
+
+
+Asset Bid Ask Spread (in alphabetical order):
+BTC: Highest Open Buy = NA USD and Lowest Open Sell = 158 USD
+ETH: Highest Open Buy = 1200 USD and Lowest Open Sell = 1423 USD
+LTC: Highest Open Buy = 600 USD and Lowest Open Sell = NA USD
+</span></pre></tr></table>
+<h2 id="Test15">Test Case 15: Hidden</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  Exchange e;
+  std::ostringstream oss;
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;BTC&quot;, 1000);
+  e.MakeDeposit(&quot;Nahum&quot;, &quot;USD&quot;, 100000);
+  e.MakeDeposit(&quot;Dolson&quot;, &quot;USD&quot;, 555555);
+  e.MakeDeposit(&quot;Ofria&quot;, &quot;ETH&quot;, 678);
+  e.MakeDeposit(&quot;Zaabar&quot;, &quot;USD&quot;, 12121212);
+  e.MakeDeposit(&quot;Zaabar&quot;, &quot;LTC&quot;, 4563);
+  // BTC rough price 1000
+  // ETH rough price 100
+  // LTC rough price 500
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 5, 1100});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 100, 1200});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 7, 800});
+  e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 1, 950});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 12, 156});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 10, 160});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Sell&quot;, &quot;LTC&quot;, 10, 550});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;LTC&quot;, 10, 450});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;LTC&quot;, 55, 600});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Buy&quot;, &quot;ETH&quot;, 30, 158});
+  e.AddOrder({&quot;Ofria&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 10, 140});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 10, 1500});
+  e.AddOrder({&quot;Zaabar&quot;, &quot;Buy&quot;, &quot;ETH&quot;, 200, 1255});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;BTC&quot;, 30, 158});
+  e.AddOrder({&quot;Dolson&quot;, &quot;Buy&quot;, &quot;BTC&quot;, 20, 2000});
+  e.AddOrder({&quot;Nahum&quot;, &quot;Sell&quot;, &quot;ETH&quot;, 1, 1423});
+  e.PrintUserPortfolios(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUserPortfolios(oss);
+  CHECK(oss.str() == &quot;User Portfolios (in alphabetical order):\nDolson&apos;s Portfolio: 21 BTC, 514605 USD, \nNahum&apos;s Portfolio: 872 BTC, 21 ETH, 10 LTC, 112924 USD, \nOfria&apos;s Portfolio: 646 ETH, 15846 USD, \nZaabar&apos;s Portfolio: 10 BTC, 10 ETH, 4553 LTC, 11856712 USD, \n&quot;);
+  e.PrintUsersOrders(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintUsersOrders(oss);
+  CHECK(oss.str() == &quot;Users Orders (in alphabetical order):\nDolson&apos;s Open Orders (in chronological order):\nDolson&apos;s Filled Orders (in chronological order):\nBuy 1 BTC at 158 USD by Dolson\nBuy 20 BTC at 2000 USD by Dolson\nNahum&apos;s Open Orders (in chronological order):\nSell 95 BTC at 1200 USD by Nahum\nBuy 45 LTC at 600 USD by Nahum\nBuy 8 ETH at 158 USD by Nahum\nSell 2 BTC at 158 USD by Nahum\nSell 1 ETH at 1423 USD by Nahum\nNahum&apos;s Filled Orders (in chronological order):\nBuy 10 LTC at 600 USD by Nahum\nBuy 12 ETH at 158 USD by Nahum\nBuy 10 ETH at 140 USD by Nahum\nSell 5 BTC at 1500 USD by Nahum\nSell 5 BTC at 1500 USD by Nahum\nSell 1 BTC at 158 USD by Nahum\nBuy 7 BTC at 158 USD by Nahum\nSell 7 BTC at 158 USD by Nahum\nSell 20 BTC at 2000 USD by Nahum\nOfria&apos;s Open Orders (in chronological order):\nOfria&apos;s Filled Orders (in chronological order):\nSell 12 ETH at 158 USD by Ofria\nSell 10 ETH at 140 USD by Ofria\nSell 10 ETH at 1255 USD by Ofria\nZaabar&apos;s Open Orders (in chronological order):\nBuy 10 LTC at 450 USD by Zaabar\nBuy 190 ETH at 1255 USD by Zaabar\nZaabar&apos;s Filled Orders (in chronological order):\nSell 10 LTC at 600 USD by Zaabar\nBuy 5 BTC at 1500 USD by Zaabar\nBuy 5 BTC at 1500 USD by Zaabar\nBuy 10 ETH at 1255 USD by Zaabar\n&quot;);
+  std::cout &lt;&lt; std::endl &lt;&lt; std::endl;
+  e.PrintBidAskSpread(std::cout);
+  oss.str(&quot;&quot;);
+  e.PrintBidAskSpread(oss);
+  CHECK(oss.str() == &quot;Asset Bid Ask Spread (in alphabetical order):\nBTC: Highest Open Buy = NA USD and Lowest Open Sell = 158 USD\nETH: Highest Open Buy = 1255 USD and Lowest Open Sell = 1423 USD\nLTC: Highest Open Buy = 600 USD and Lowest Open Sell = NA USD\n&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+User Portfolios (in alphabetical order):
+Dolson\'s Portfolio: 21 BTC, 514605 USD, 
+Nahum\'s Portfolio: 872 BTC, 21 ETH, 10 LTC, 112924 USD, 
+Ofria\'s Portfolio: 646 ETH, 15846 USD, 
+Zaabar\'s Portfolio: 10 BTC, 10 ETH, 4553 LTC, 11856712 USD, 
+Users Orders (in alphabetical order):
+Dolson\'s Open Orders (in chronological order):
+Dolson\'s Filled Orders (in chronological order):
+Buy 1 BTC at 158 USD by Dolson
+Buy 20 BTC at 2000 USD by Dolson
+Nahum\'s Open Orders (in chronological order):
+Sell 95 BTC at 1200 USD by Nahum
+Buy 45 LTC at 600 USD by Nahum
+Buy 8 ETH at 158 USD by Nahum
+Sell 2 BTC at 158 USD by Nahum
+Sell 1 ETH at 1423 USD by Nahum
+Nahum\'s Filled Orders (in chronological order):
+Buy 10 LTC at 600 USD by Nahum
+Buy 12 ETH at 158 USD by Nahum
+Buy 10 ETH at 140 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 1 BTC at 158 USD by Nahum
+Buy 7 BTC at 158 USD by Nahum
+Sell 7 BTC at 158 USD by Nahum
+Sell 20 BTC at 2000 USD by Nahum
+Ofria\'s Open Orders (in chronological order):
+Ofria\'s Filled Orders (in chronological order):
+Sell 12 ETH at 158 USD by Ofria
+Sell 10 ETH at 140 USD by Ofria
+Sell 10 ETH at 1255 USD by Ofria
+Zaabar\'s Open Orders (in chronological order):
+Buy 10 LTC at 450 USD by Zaabar
+Buy 190 ETH at 1255 USD by Zaabar
+Zaabar\'s Filled Orders (in chronological order):
+Sell 10 LTC at 600 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 10 ETH at 1255 USD by Zaabar
+
+
+Asset Bid Ask Spread (in alphabetical order):
+BTC: Highest Open Buy = NA USD and Lowest Open Sell = 158 USD
+ETH: Highest Open Buy = 1255 USD and Lowest Open Sell = 1423 USD
+LTC: Highest Open Buy = 600 USD and Lowest Open Sell = NA USD
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+<span style="background-color:LightCoral">User Portfolios (in alphabetical order):
+Dolson's Portfolio: 21 BTC, 514605 USD, 
+Nahum's Portfolio: 872 BTC, 21 ETH, 10 LTC, 112924 USD, 
+Ofria's Portfolio: 646 ETH, 15846 USD, 
+Zaabar's Portfolio: 10 BTC, 10 ETH, 4553 LTC, 11856712 USD, 
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Buy 1 BTC at 158 USD by Dolson
+Buy 20 BTC at 2000 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Sell 95 BTC at 1200 USD by Nahum
+Buy 45 LTC at 600 USD by Nahum
+Buy 8 ETH at 158 USD by Nahum
+Sell 2 BTC at 158 USD by Nahum
+Sell 1 ETH at 1423 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+Buy 10 LTC at 600 USD by Nahum
+Buy 12 ETH at 158 USD by Nahum
+Buy 10 ETH at 140 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 5 BTC at 1500 USD by Nahum
+Sell 1 BTC at 158 USD by Nahum
+Buy 7 BTC at 158 USD by Nahum
+Sell 7 BTC at 158 USD by Nahum
+Sell 20 BTC at 2000 USD by Nahum
+Ofria's Open Orders (in chronological order):
+Ofria's Filled Orders (in chronological order):
+Sell 12 ETH at 158 USD by Ofria
+Sell 10 ETH at 140 USD by Ofria
+Sell 10 ETH at 1255 USD by Ofria
+Zaabar's Open Orders (in chronological order):
+Buy 10 LTC at 450 USD by Zaabar
+Buy 190 ETH at 1255 USD by Zaabar
+Zaabar's Filled Orders (in chronological order):
+Sell 10 LTC at 600 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 5 BTC at 1500 USD by Zaabar
+Buy 10 ETH at 1255 USD by Zaabar
+
+
+Asset Bid Ask Spread (in alphabetical order):
+BTC: Highest Open Buy = NA USD and Lowest Open Sell = 158 USD
+ETH: Highest Open Buy = 1255 USD and Lowest Open Sell = 1423 USD
+LTC: Highest Open Buy = 600 USD and Lowest Open Sell = NA USD
+</span></pre></tr></table>

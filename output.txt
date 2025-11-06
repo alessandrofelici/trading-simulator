@@ -1,0 +1,101 @@
+start
+My Program:
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 5555 USD, 
+Nahum's Portfolio: 5 BTC, 
+
+Key:
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 5555 USD, 
+Nahum's Portfolio: 5 BTC, 
+
+
+My Program:
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+
+Key:
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Nahum's Open Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+
+
+
+
+My Program:
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 5 BTC, 4855 USD, 
+Nahum's Portfolio: 5 BTC, 500 USD, 
+
+Key:
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 5 BTC, 4855 USD, 
+Nahum's Portfolio: 5 BTC, 500 USD, 
+
+
+My Program:
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 2 BTC at 100 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 100 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+
+Key:
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Buy 2 BTC at 100 USD by Dolson
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 100 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+
+
+
+
+My Program:
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 7 BTC, 4855 USD, 
+Nahum's Portfolio: 2 BTC, 700 USD, 
+
+Key:
+User Portfolios (in alphabetical order):
+Dolson's Portfolio: 7 BTC, 4855 USD, 
+Nahum's Portfolio: 2 BTC, 700 USD, 
+
+
+My Program:
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 100 USD by Dolson
+Buy 2 BTC at 100 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Sell 1 BTC at 100 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Sell 2 BTC at 100 USD by Nahum
+
+Key:
+Users Orders (in alphabetical order):
+Dolson's Open Orders (in chronological order):
+Dolson's Filled Orders (in chronological order):
+Buy 5 BTC at 100 USD by Dolson
+Buy 2 BTC at 100 USD by Dolson
+Nahum's Open Orders (in chronological order):
+Sell 1 BTC at 100 USD by Nahum
+Nahum's Filled Orders (in chronological order):
+Sell 5 BTC at 100 USD by Nahum
+Sell 2 BTC at 100 USD by Nahum
+
+
